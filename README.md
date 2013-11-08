@@ -32,9 +32,25 @@ Para nuestra practica necesitaremos como ya he comentado antes apache y mysql. I
 apt-get install apache2
 apt-get install mysql-server
 aptitude install php5 libapache2-mod-php5
+apt-get install phpmyadmin
 </pre>
 Durante la instalación de mysql nos solicitará una contraseña de acesso, la cual no puede ser vacia por motivos de seguridad.
+Si accedemos a la dirección localhost desde un navegador nos aparecerá el index por defecto de apache 'Its work!' con lo cual nos indica que esta bien instalado.
+Hemos instalado tambien phpmyadmin para que nos resulte más sencillo el manejo de base de datos que desde el terminal. 
+Durante la instalación nos realiza varias preguntas como por ejemplo que servidor web tenemos instalado y la contraseña para acceder a las bases de datos. 
+El programa de instalación crea un enlace simbólico en el DocumentRoot del servidor web para que la aplicación pueda ser accesible desde la url: http://ip-del-servidor-web/phpmyadmin/index.php. Si no se viera la aplicación en dicha url, quizás sea por algún aspecto de la configuración de apache. 
+En tal caso, lo más sencillo sería mover la carpeta de phpmyadmin directamente dentro del DocumentRoot del servidor y asignar al usuario www-data que es el usuario con el que se ejecuta el apache, para que apache pueda acceder a dicha carpeta:
 
+<pre>
+mv /usr/share/phpmyadmin /var/www/ (en nuestro caso)
+chown -R www-data /var/www/phpmyadmin.
+</pre>
+
+Volvemos a probar y nos devuelve el siguiente error:
+![captura 1] (https://dl.dropbox.com/s/jz8wfhq0sqi8j2m/error_phpmyadmin.png)
+
+
+apt-get install php5-mysql php5-curl php5-gd php5-idn php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl
 
 Objetivo 3 "Importar mi programa"
 ----------
