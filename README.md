@@ -63,6 +63,21 @@ Si volvemos a intentarlo ya estará listo para acceder.
 Objetivo 3 "Importar mi programa"
 ---------------------------------
 
+Podemos comprobar que se han generado varias carpetas al instalar estos modulos, donde colgaremos nuestros archivos será en `var/www` crearemos hay una carpeta llamada periodico y meteremos nuestros archivos php.
+para copiar estos archivos necesitamos ser root, por tanto desde un terminal:
+<pre>
+sudo su
+cp -R periodico debian/var/www/periodico 
+</pre>
+Con la opción -R copia directorios y subdirectorios.
+
+Ya tenemos la primera parte que es importar los archivos php, css, inc y xml. Lo siguiente es importar la base de datos a nuestra base de datos nueva para que se pueda ver el contenido de las noticias.
+Como ya teniamos creadas las tablas en otra base de datos en otro servidor. Exportaremos esas tablas en nuestro sistema con extensión .sql e importaremos en phpmyadmin con la opción importar y seleccionando dicho archivo que ha sido descargado desde el otro servidor.
+Es importante aseguramos que el archivo configuracion.inc tiene la información adaptada para conectarse a nuestra base de datos.
 
 Prueba de funcionamiento
 ------------------------
+
+Para comprobar que todo funciona correctamente accedemos a `localhost/periodico` y probamos su correcto funcionamiento:
+
+![captura 3] (https://dl.dropbox.com/s/swwh4dwkle79n4j/web.png)
