@@ -57,6 +57,9 @@ etc/init.d mysql start
 </pre>
 Si volvemos a intentarlo ya estará listo para acceder.
 
+![captura 2] (https://dl.dropbox.com/s/vddgcw5ndnjws0d/mysqlfuncionando.png)
+
+
 Objetivo 3 "Importar mi programa"
 ---------------------------------
 
