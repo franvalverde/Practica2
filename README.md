@@ -45,6 +45,7 @@ chown -R www-data /var/www/phpmyadmin.
 </pre>
 Volvemos a probar y nos devuelve el siguiente error:
 ![captura 1] (https://dl.dropbox.com/s/jz8wfhq0sqi8j2m/error_phpmyadmin.png)
+
 Para resolver esto instalaremos los siguientes paquetes:
 <pre>
 apt-get install php5-mysql php5-curl php5-gd php5-idn php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl
