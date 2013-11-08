@@ -27,6 +27,13 @@ chroot Documentos/4/debian
 Objetivo 2 "Instalación de modulos necesarios"
 ----------
 Lo primero que debemos de hacer es asegurarnos de que tenemos los repositorios actualizados para esto usamos apt-get update.
+Para nuestra practica necesitaremos como ya he comentado antes apache y mysql. Instalemoslos:
+<pre>
+apt-get install apache2
+apt-get install mysql-server
+aptitude install php5 libapache2-mod-php5
+</pre>
+Durante la instalación de mysql nos solicitará una contraseña de acesso, la cual no puede ser vacia por motivos de seguridad.
 
 
 Objetivo 3 "Importar mi programa"
