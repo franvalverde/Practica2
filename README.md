@@ -13,7 +13,7 @@ Trata de una plataforma web basada en un periodico, donde existen usuarios que p
 Para conseguir esto necesitaremos un servidor web `Apache` y un servidor `mysql` donde estarán todas tablas con los usuarios, noticias y comentarios.
 
 Objetivo 1 "Instalar sistema debian"
----------- 
+------------------------------------ 
 En primer lugar instalamos la distribución debian:
 <pre>
 sudo debootstrap --arch=amd64 wheezy debian http://ftp.debian.org/debian/
@@ -23,9 +23,8 @@ Accedemos a la distribucion con chroot de la siguiente manera:
 chroot Documentos/4/debian
 </pre>
 
-
 Objetivo 2 "Instalación de modulos necesarios"
-----------
+----------------------------------------------
 Lo primero que debemos de hacer es asegurarnos de que tenemos los repositorios actualizados para esto usamos apt-get update.
 Para nuestra practica necesitaremos como ya he comentado antes apache y mysql. Instalemoslos:
 <pre>
@@ -40,20 +39,25 @@ Hemos instalado tambien phpmyadmin para que nos resulte más sencillo el manejo 
 Durante la instalación nos realiza varias preguntas como por ejemplo que servidor web tenemos instalado y la contraseña para acceder a las bases de datos. 
 El programa de instalación crea un enlace simbólico en el DocumentRoot del servidor web para que la aplicación pueda ser accesible desde la url: http://ip-del-servidor-web/phpmyadmin/index.php. Si no se viera la aplicación en dicha url, quizás sea por algún aspecto de la configuración de apache. 
 En tal caso, lo más sencillo sería mover la carpeta de phpmyadmin directamente dentro del DocumentRoot del servidor y asignar al usuario www-data que es el usuario con el que se ejecuta el apache, para que apache pueda acceder a dicha carpeta:
-
 <pre>
 mv /usr/share/phpmyadmin /var/www/ (en nuestro caso)
 chown -R www-data /var/www/phpmyadmin.
 </pre>
-
 Volvemos a probar y nos devuelve el siguiente error:
 ![captura 1] (https://dl.dropbox.com/s/jz8wfhq0sqi8j2m/error_phpmyadmin.png)
-
-
+Para resolver esto instalaremos los siguientes paquetes:
+<pre>
 apt-get install php5-mysql php5-curl php5-gd php5-idn php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl
+</pre>
+Continua dando el error, pararemos los servicios y los arrancaremos de nuevo; reiniciamos el sistema y arrancamos los dos servicios:
+<pre>
+etc/init.d apache2 start
+etc/init.d mysql start
+</pre>
+Si volvemos a intentarlo ya estará listo para acceder.
 
 Objetivo 3 "Importar mi programa"
-----------
+---------------------------------
 
 
 Prueba de funcionamiento
