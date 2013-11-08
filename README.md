@@ -14,10 +14,19 @@ Para conseguir esto necesitaremos un servidor web `Apache` y un servidor `mysql`
 
 Objetivo 1 "Instalar sistema debian"
 ---------- 
+En primer lugar instalamos la distribución debian:
+<pre>
+sudo debootstrap --arch=amd64 wheezy debian http://ftp.debian.org/debian/
+</pre>
+Accedemos a la distribucion con chroot de la siguiente manera:
+<pre>
+chroot Documentos/4/debian
+</pre>
 
 
 Objetivo 2 "Instalación de modulos necesarios"
 ----------
+Lo primero que debemos de hacer es asegurarnos de que tenemos los repositorios actualizados para esto usamos apt-get update.
 
 
 Objetivo 3 "Importar mi programa"
